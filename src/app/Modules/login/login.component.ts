@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DatosService } from 'src/app/Services/datos.service';
 
 @Component({
   selector: 'app-login',
@@ -8,24 +9,19 @@ import { Component, OnInit } from '@angular/core';
 export class LoginComponent implements OnInit {
 
   // VARIABLES
-  tiposDocumento = [{ id: '', nombre: '' }];
+  tiposDocumento: any;
   botonIngresar = { texto: 'Ingresar', estado: false };
   documento = { numero: '', tipo: '', estado: false };
   numAccionista = { numero: '', estado: false };
 
-  constructor() { }
+  constructor(private Datos: DatosService) { }
 
   ngOnInit() {
-    this.llenarTiposDoc();
+    this.DatosGlobales();
   }
 
-  llenarTiposDoc() {
-    this.tiposDocumento = [
-      { id: '1', nombre: 'Cédula de ciudadanía' },
-      { id: '2', nombre: 'Cédula de extrnajería' },
-      { id: '3', nombre: 'NIT' },
-      { id: '4', nombre: 'Pasaporte' },
-    ];
+  DatosGlobales() {
+    this.tiposDocumento = this.Datos.TiposDocumento();
   }
 
   valDocumento() {

@@ -1,41 +1,44 @@
-<div class="container mt-5">
-  <div class="d-flex justify-content-center mt-5">
-    <div class="col-sm-6 mt-5">
-      <div class="my-4 text-center">
-        <div class="d-flex mt-5 justify-content-center">
-          <p class="bg-primary pt-1 col-6"></p>
+<img alt="Fondo de Login">
+<div class="imagen">
+  <div class="container">
+    <div class="d-flex justify-content-center">
+      <div class="col-xl-6 espacio">
+        <div class="text-center">
+          <div class="d-flex justify-content-center">
+            <div class="bg-primary pt-1 col-6"></div>
+          </div>
+          <h4 class="font-weight-bold">ASAMBLEA GRUPO AVAL</h4>
+          <h6>Ingresa tus datos personales</h6>
         </div>
-        <h4 class="font-weight-bold">ASAMBLEA GRUPO AVAL</h4>
-        <h6>Ingresa tus datos personales</h6>
-      </div>
-      <div class="form-group row">
-        <label for="inputEmail3" class="col-sm-5 col-form-label">Tipo de documento</label>
-        <div class="col-sm-7">
-          <select (change)="valIngreso()" [(ngModel)]="documento.tipo" class="form-control"
-            id="exampleFormControlSelect1">
-            <option value="" disabled>Seleccione</option>
-            <option *ngFor="let t of tiposDocumento" value="{{t.id}}">{{t.nombre}}</option>
-          </select>
+        <div class="form-group row">
+          <label for="inputEmail3" class="col-xl-5 col-form-label h6">Tipo de documento</label>
+          <div class="col-xl-7">
+            <select (change)="valIngreso()" [(ngModel)]="documento.tipo" class="form-control"
+              id="exampleFormControlSelect1">
+              <option value="" disabled>Seleccione</option>
+              <option *ngFor="let t of tiposDocumento" value="{{t.id}}">{{t.nombre}}</option>
+            </select>
+          </div>
         </div>
-      </div>
-      <div class="form-group row">
-        <label for="inputEmail3" class="col-sm-5 col-form-label">Número de documento</label>
-        <div class="col-sm-7">
-          <input (keyup)="valDocumento()" [(ngModel)]="documento.numero" type="text" class="form-control"
-            id="inputEmail3">
+        <div class="form-group row">
+          <label for="inputEmail3" class="col-xl-5 col-form-label h6">Número de documento</label>
+          <div class="col-xl-7">
+            <input (keyup)="valDocumento()" [(ngModel)]="documento.numero" type="text" class="form-control"
+              id="inputEmail3">
+          </div>
         </div>
-      </div>
-      <div class="form-group row">
-        <label for="inputPassword3" class="col-sm-5 col-form-label">Número de accionista</label>
-        <div class="col-sm-7">
-          <input (keyup)="valNumAccionista()" [(ngModel)]="numAccionista.numero" type="password" class="form-control"
-            id="inputPassword3">
+        <div class="form-group row">
+          <label for="inputPassword3" class="col-xl-5 col-form-label h6">Número de accionista</label>
+          <div class="col-xl-7">
+            <input (keyup)="valNumAccionista()" [(ngModel)]="numAccionista.numero" type="password" class="form-control"
+              id="inputPassword3">
+          </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-5"></div>
-        <div class="col-sm-7">
-          <button [disabled]="!botonIngresar.estado" class="btn btn-primary px-5">{{botonIngresar.texto}}</button>
+        <div class="row">
+          <div class="col-xl-5"></div>
+          <div class="col-xl-7">
+            <button [disabled]="!botonIngresar.estado" class="btn btn-primary px-5">{{botonIngresar.texto}}</button>
+          </div>
         </div>
       </div>
     </div>
