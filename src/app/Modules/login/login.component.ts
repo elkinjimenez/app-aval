@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class LoginComponent implements OnInit {
 
   // VARIABLES
+  tiposDocumento = [{ id: '', nombre: '' }];
   botonIngresar = { texto: 'Ingresar', estado: false };
   documento = { numero: '', tipo: '', estado: false };
   numAccionista = { numero: '', estado: false };
@@ -15,6 +16,16 @@ export class LoginComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.llenarTiposDoc();
+  }
+
+  llenarTiposDoc() {
+    this.tiposDocumento = [
+      { id: '1', nombre: 'Cédula de ciudadanía' },
+      { id: '2', nombre: 'Cédula de extrnajería' },
+      { id: '3', nombre: 'NIT' },
+      { id: '4', nombre: 'Pasaporte' },
+    ];
   }
 
   valDocumento() {

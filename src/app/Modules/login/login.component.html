@@ -1,6 +1,6 @@
-<div class="container my-5">
-  <div class="d-flex justify-content-center my-5">
-    <div class="col-6 my-5">
+<div class="container mt-5">
+  <div class="d-flex justify-content-center mt-5">
+    <div class="col-6 mt-5">
       <div class="my-5 text-center">
         <h4 class="font-weight-bold">ASAMBLEA GRUPO AVAL</h4>
         <h6>Ingresa tus datos personales</h6>
@@ -11,8 +11,7 @@
           <select (change)="valIngreso()" [(ngModel)]="documento.tipo" class="form-control"
             id="exampleFormControlSelect1">
             <option value="" disabled>Seleccione</option>
-            <option>Cédula de ciudadanía</option>
-            <option>Cédula de extrangería</option>
+            <option *ngFor="let t of tiposDocumento" value="{{t.id}}">{{t.nombre}}</option>
           </select>
         </div>
       </div>
