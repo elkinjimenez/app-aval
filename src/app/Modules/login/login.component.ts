@@ -9,20 +9,14 @@ import { DatosService } from 'src/app/Services/datos.service';
 export class LoginComponent implements OnInit {
 
   // VARIABLES
-  tiposDocumento: any;
+
   botonIngresar = { texto: 'Ingresar', estado: false };
   documento = { numero: '', tipo: '', estado: false };
   numAccionista = { numero: '', estado: false };
 
-  constructor(private Datos: DatosService) { }
+  constructor(public Datos: DatosService) { }
 
-  ngOnInit() {
-    this.DatosGlobales();
-  }
-
-  DatosGlobales() {
-    this.tiposDocumento = this.Datos.TiposDocumento();
-  }
+  ngOnInit() { }
 
   valDocumento() {
     if (this.documento.numero !== '') {
@@ -30,7 +24,6 @@ export class LoginComponent implements OnInit {
     } else {
       this.documento.estado = false;
     }
-    // VALIDAR INGRESO
     this.valIngreso();
   }
 
@@ -40,7 +33,6 @@ export class LoginComponent implements OnInit {
     } else {
       this.numAccionista.estado = false;
     }
-    // VALIDAR INGRESO
     this.valIngreso();
   }
 

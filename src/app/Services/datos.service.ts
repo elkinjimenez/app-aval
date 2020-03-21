@@ -5,14 +5,11 @@ import { Injectable } from '@angular/core';
 })
 export class DatosService {
 
-  // ----------------- VARIABLES
-  tiposDocumento: any;
+  private tiposDocumento: any;
 
   constructor() { }
 
-  // ------------------ LLENANDO DATOS
-
-  TiposDocumento() {
+  GetTiposDocumento() {
     this.tiposDocumento = [
       { id: '1', nombre: 'Cédula de ciudadanía' },
       { id: '2', nombre: 'Cédula de extrnajería' },
@@ -21,5 +18,6 @@ export class DatosService {
     ];
     return this.tiposDocumento;
   }
+
 
 }
