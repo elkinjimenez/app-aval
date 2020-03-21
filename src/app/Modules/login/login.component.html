@@ -1,0 +1,41 @@
+<div class="container my-5">
+  <div class="d-flex justify-content-center my-5">
+    <div class="col-6 my-5">
+      <div class="my-5 text-center">
+        <h4 class="font-weight-bold">ASAMBLEA GRUPO AVAL</h4>
+        <h6>Ingresa tus datos personales</h6>
+      </div>
+      <div class="form-group row">
+        <label for="inputEmail3" class="col-sm-5 col-form-label">Tipo de documento</label>
+        <div class="col-sm-7">
+          <select (change)="valIngreso()" [(ngModel)]="documento.tipo" class="form-control"
+            id="exampleFormControlSelect1">
+            <option value="" disabled>Seleccione</option>
+            <option>Cédula de ciudadanía</option>
+            <option>Cédula de extrangería</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="inputEmail3" class="col-sm-5 col-form-label">Número de documento</label>
+        <div class="col-sm-7">
+          <input (keyup)="valDocumento()" [(ngModel)]="documento.numero" type="text" class="form-control"
+            id="inputEmail3">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="inputPassword3" class="col-sm-5 col-form-label">Número de accionista</label>
+        <div class="col-sm-7">
+          <input (keyup)="valNumAccionista()" [(ngModel)]="numAccionista.numero" type="password" class="form-control"
+            id="inputPassword3">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-5"></div>
+        <div class="col-sm-7">
+          <button [disabled]="!botonIngresar.estado" class="btn btn-primary px-5">{{botonIngresar.texto}}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
