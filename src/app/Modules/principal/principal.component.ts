@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DatosService } from 'src/app/Services/datos.service';
 
 @Component({
   selector: 'app-principal',
@@ -7,9 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PrincipalComponent implements OnInit {
 
-  constructor() { }
+  constructor(public Datos: DatosService) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
 }

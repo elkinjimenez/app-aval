@@ -10,33 +10,33 @@
           <h6>Ingresa tus datos personales</h6>
         </div>
         <div class="form-group row">
-          <label for="inputEmail3" class="col-xl-5 col-form-label h6">Tipo de documento</label>
+          <label for="tipoDocumento" class="col-xl-5 col-form-label h6">Tipo de documento</label>
           <div class="col-xl-7">
             <select (change)="valIngreso()" [(ngModel)]="documento.tipo" class="form-control"
-              id="exampleFormControlSelect1">
+              id="tipoDocumento">
               <option value="" disabled>Seleccione</option>
               <option *ngFor="let t of Datos.GetTiposDocumento()" value="{{t.id}}">{{t.nombre}}</option>
             </select>
           </div>
         </div>
         <div class="form-group row">
-          <label for="inputEmail3" class="col-xl-5 col-form-label h6">Número de documento</label>
+          <label for="documento" class="col-xl-5 col-form-label h6">Número de documento</label>
           <div class="col-xl-7">
             <input (keyup)="valDocumento()" [(ngModel)]="documento.numero" type="text" class="form-control"
-              id="inputEmail3">
+              id="documento">
           </div>
         </div>
         <div class="form-group row">
-          <label for="inputPassword3" class="col-xl-5 col-form-label h6">Número de accionista</label>
+          <label for="numAccionista" class="col-xl-5 col-form-label h6">Número de accionista</label>
           <div class="col-xl-7">
             <input (keyup)="valNumAccionista()" [(ngModel)]="numAccionista.numero" type="password" class="form-control"
-              id="inputPassword3">
+              id="numAccionista">
           </div>
         </div>
         <div class="row">
           <div class="col-xl-5"></div>
           <div class="col-xl-7">
-            <button [disabled]="botonIngresar.estado" class="btn btn-primary px-5">{{botonIngresar.texto}}</button>
+            <button (click)="ingresar()" [disabled]="!botonIngresar.estado" class="btn btn-primary px-5">{{botonIngresar.texto}}</button>
           </div>
         </div>
       </div>

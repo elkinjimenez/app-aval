@@ -1,1 +1,83 @@
-<p>registro-apoderado works!</p>
+<div class="imagen">
+  <div class="container">
+    <div class="d-flex justify-content-center">
+      <div class="col-xl-6 espacio">
+        <div class="text-center">
+          <div class="d-flex justify-content-center">
+            <div class="bg-primary pt-1 col-6"></div>
+          </div>
+          <h4 class="font-weight-bold">Autorización de Apoderados</h4>
+          <h6>A través de la aceptación de esta información usted autoriza a la persona a que lo represente en la
+            asamblea Aval 2020.</h6>
+        </div>
+        <div *ngIf="!registrado; else registroListo">
+          <div class="form-group row">
+            <label for="nombres" class="col-xl-5 col-form-label h6">Nombres y apellidos</label>
+            <div class="col-xl-7">
+              <input (keyup)="valNombres()" [(ngModel)]="documento.numero" type="text" class="form-control"
+                id="nombres">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="tipoDocumento" class="col-xl-5 col-form-label h6">Tipo de documento</label>
+            <div class="col-xl-7">
+              <select (change)="valRegistro()" [(ngModel)]="documento.tipo" class="form-control" id="tipoDocumento">
+                <option value="" disabled>Seleccione</option>
+                <option *ngFor="let t of Datos.GetTiposDocumento()" value="{{t.id}}">{{t.nombre}}</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="documento" class="col-xl-5 col-form-label h6">Número de documento</label>
+            <div class="col-xl-7">
+              <input (keyup)="valDocumento()" [(ngModel)]="documento.numero" type="text" class="form-control"
+                id="documento">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="email" class="col-xl-5 col-form-label h6">Correo eletrónico</label>
+            <div class="col-xl-7">
+              <input (keyup)="valDocumento()" [(ngModel)]="documento.numero" type="text" class="form-control"
+                id="email">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="email" class="col-xl-5 col-form-label h6">Autorización o poder</label>
+            <div class="col-xl-7">
+              <div class="custom-file">
+                <input type="file" class="custom-file-input" id="customFileLangHTML">
+                <label class="custom-file-label" for="customFileLangHTML" data-browse="Elegir">Seleccionar
+                  archivo</label>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xl-5"></div>
+            <div class="col-xl-7">
+              <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input" id="customSwitch1">
+                <label class="custom-control-label" for="customSwitch1">Acepto autorización</label>
+              </div>
+            </div>
+          </div>
+          <div class="row mt-3">
+            <div class="col-xl-5"></div>
+            <div class="col-xl-7">
+              <button (click)="ingresar()" [disabled]="!botonRegistrar.estado"
+                class="btn btn-primary px-5">{{botonRegistrar.texto}}</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-template #registroListo>
+  <div class="text-center mt-3">
+    <img src="../../../assets/images/check-icon.png" alt="Registrado">
+    <h5 class="text-success font-weight-bold">¡Muchas gracias!</h5>
+    <h5>El formulario y los datos se han enviado exitosamente.</h5>
+  </div>
+</ng-template>
+<div class="py-5"></div>
+<app-footer></app-footer>

@@ -6,6 +6,7 @@ import { Injectable } from '@angular/core';
 export class DatosService {
 
   private tiposDocumento: any;
+  private logueado: boolean;
 
   constructor() { }
 
@@ -17,6 +18,14 @@ export class DatosService {
       { id: '4', nombre: 'Pasaporte' },
     ];
     return this.tiposDocumento;
+  }
+
+  GetLogueado() {
+    return this.logueado;
+  }
+
+  SetLogueado(logueado) {
+    return this.logueado = logueado;
   }
 
 
