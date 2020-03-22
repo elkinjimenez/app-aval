@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class DatosService {
 
+  item = 'asamblea';
   private tiposDocumento: any;
   private logueado: boolean;
 

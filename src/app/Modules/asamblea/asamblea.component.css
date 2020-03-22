@@ -1,0 +1,15 @@
+.imagen {
+  background-image: url(/assets/images/fondo-02.png);
+  background-repeat:no-repeat;
+  background-size: 95vw;
+}
+
+.espacio {
+  margin-top: 240px;
+}
+
+@media screen and (max-width: 700px){
+  .espacio {
+    margin-top: 130px;
+  }
+}

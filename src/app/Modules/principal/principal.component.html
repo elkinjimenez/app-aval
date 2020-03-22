@@ -1,10 +1,17 @@
 <app-navbar></app-navbar>
-<div *ngIf="!Datos.GetLogueado(); else logueado">
+<div *ngIf="Datos.item === 'login'; else registroApoderado">
   <app-login></app-login>
   <div class="fixed-bottom">
     <app-footer></app-footer>
   </div>
 </div>
-<ng-template #logueado>
-  <app-registro-apoderado></app-registro-apoderado>
+<ng-template #registroApoderado>
+  <div *ngIf="Datos.item === 'registro-apoderado'; else asamblea">
+    <app-registro-apoderado></app-registro-apoderado>
+    <app-footer></app-footer>
+  </div>
+</ng-template>
+<ng-template #asamblea>
+  <app-asamblea></app-asamblea>
+  <app-footer></app-footer>
 </ng-template>
