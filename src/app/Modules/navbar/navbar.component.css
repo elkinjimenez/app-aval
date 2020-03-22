@@ -9,3 +9,7 @@
     left: 50px;
   }
 }
+
+.pointer {
+  cursor: pointer;
+}

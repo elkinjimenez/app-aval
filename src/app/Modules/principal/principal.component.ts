@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { DatosService } from 'src/app/Services/datos.service';
-import { setInterval } from 'timers';
-
 
 @Component({
   selector: 'app-principal',
@@ -10,7 +8,7 @@ import { setInterval } from 'timers';
 })
 export class PrincipalComponent implements OnInit {
 
-  pantalla: string;
+  pantalla = localStorage.getItem('pantalla');
 
   constructor(public Datos: DatosService) { }
 

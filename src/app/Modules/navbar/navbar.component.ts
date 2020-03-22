@@ -12,4 +12,12 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
   }
 
+  asamblea() {
+    localStorage.setItem('pantalla', 'asamblea');
+  }
+
+  inicio() {
+    localStorage.setItem('pantalla', '');
+  }
+
 }

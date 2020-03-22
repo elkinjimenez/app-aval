@@ -45,6 +45,7 @@ export class LoginComponent implements OnInit {
   }
 
   ingresar() {
+    this.botonIngresar.texto = 'Procesando...';
     localStorage.setItem('pantalla', 'registro-apoderado');
   }
 
