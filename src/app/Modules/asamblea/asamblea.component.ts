@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DatosService } from 'src/app/Services/datos.service';
 
 @Component({
   selector: 'app-asamblea',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AsambleaComponent implements OnInit {
 
-  constructor() { }
+  item: string;
 
-  ngOnInit() {
-  }
+  constructor(public Datos: DatosService) { }
+
+  ngOnInit() { }
 
 }

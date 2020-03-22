@@ -1,17 +1,17 @@
 <app-navbar></app-navbar>
-<div *ngIf="Datos.item === 'login'; else registroApoderado">
+<div *ngIf="pantalla === 'registro-apoderado'; else asamblea">
+  <app-registro-apoderado></app-registro-apoderado>
+  <app-footer></app-footer>
+</div>
+<ng-template #asamblea>
+  <div *ngIf="pantalla === 'asamblea'; else login">
+    <app-asamblea></app-asamblea>
+    <app-footer></app-footer>
+  </div>
+</ng-template>
+<ng-template #login>
   <app-login></app-login>
   <div class="fixed-bottom">
     <app-footer></app-footer>
   </div>
-</div>
-<ng-template #registroApoderado>
-  <div *ngIf="Datos.item === 'registro-apoderado'; else asamblea">
-    <app-registro-apoderado></app-registro-apoderado>
-    <app-footer></app-footer>
-  </div>
-</ng-template>
-<ng-template #asamblea>
-  <app-asamblea></app-asamblea>
-  <app-footer></app-footer>
 </ng-template>

@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
   }
 
   ingresar() {
-    this.Datos.SetLogueado(true);
+    localStorage.setItem('pantalla', 'registro-apoderado');
   }
 
 }

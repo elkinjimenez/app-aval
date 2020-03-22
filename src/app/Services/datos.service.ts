@@ -5,9 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class DatosService {
 
-  item = 'asamblea';
   private tiposDocumento: any;
-  private logueado: boolean;
 
   constructor() { }
 
@@ -20,14 +18,4 @@ export class DatosService {
     ];
     return this.tiposDocumento;
   }
-
-  GetLogueado() {
-    return this.logueado;
-  }
-
-  SetLogueado(logueado) {
-    return this.logueado = logueado;
-  }
-
-
 }
