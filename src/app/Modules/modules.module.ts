@@ -9,8 +9,6 @@ import { RegistroApoderadoComponent } from './registro-apoderado/registro-apoder
 import { PrincipalComponent } from './principal/principal.component';
 import { AsambleaComponent } from './asamblea/asamblea.component';
 
-
-
 @NgModule({
   declarations: [
     LoginComponent,

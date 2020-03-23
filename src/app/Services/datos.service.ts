@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { RespUsuario } from '../Models/resp-usuario';
 
 @Injectable({
   providedIn: 'root'
@@ -7,14 +9,30 @@ export class DatosService {
 
   private tiposDocumento: any;
 
-  constructor() { }
+  // RESPUESTAS
+  private respuestaIP: { ip: string };
+
+  constructor(private http: HttpClient) { }
+
+  GetLogueo(tip: string, num: string, accion: string) {
+    const URL = 'https://wsasableaaval.herokuapp.com/api/shareHolder/' + tip + '/' + num + '/' + accion;
+    return this.http.get(URL);
+  }
+
+  async GetIP() {
+    await this.http.get('https://api.ipify.org?format=json').subscribe(
+      datos => {
+        this.respuestaIP = JSON.parse(JSON.stringify(datos));
+        console.log(this.respuestaIP.ip);
+      });
+  }
 
   GetTiposDocumento() {
     this.tiposDocumento = [
-      { id: '1', nombre: 'Cédula de ciudadanía' },
-      { id: '2', nombre: 'Cédula de extrnajería' },
-      { id: '3', nombre: 'NIT' },
-      { id: '4', nombre: 'Pasaporte' },
+      { id: 'cc', nombre: 'Cédula de ciudadanía' },
+      { id: 'ce', nombre: 'Cédula de extrnajería' },
+      { id: 'nit', nombre: 'NIT' },
+      { id: 'ps', nombre: 'Pasaporte' },
     ];
     return this.tiposDocumento;
   }

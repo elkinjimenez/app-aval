@@ -22,7 +22,7 @@
             <div class="col-xl-7">
               <select (change)="valDocumento()" [(ngModel)]="documento.tipo" class="form-control" id="tipoDocumento">
                 <option value="" disabled>Seleccione</option>
-                <option *ngFor="let t of Datos.GetTiposDocumento()" value="{{t.id}}">{{t.nombre}}</option>
+                <option *ngFor="let t of servicios.GetTiposDocumento()" value="{{t.id}}">{{t.nombre}}</option>
               </select>
             </div>
           </div>

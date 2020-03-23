@@ -9,6 +9,7 @@ import { NavbarComponent } from './Modules/navbar/navbar.component';
 import { RegistroApoderadoComponent } from './Modules/registro-apoderado/registro-apoderado.component';
 import { PrincipalComponent } from './Modules/principal/principal.component';
 import { AsambleaComponent } from './Modules/asamblea/asamblea.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { AsambleaComponent } from './Modules/asamblea/asamblea.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

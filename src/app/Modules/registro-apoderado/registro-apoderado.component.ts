@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DatosService } from 'src/app/Services/datos.service';
+import { ReqUsuario } from 'src/app/Models/req-usuario';
 
 @Component({
   selector: 'app-registro-apoderado',
@@ -8,18 +9,17 @@ import { DatosService } from 'src/app/Services/datos.service';
 })
 export class RegistroApoderadoComponent implements OnInit {
 
-  registrado = false;
-
   botonRegistrar = { texto: 'Registrar', estado: false };
   documento = { numero: '', tipo: '', estado: false };
   nombres = { nombres: '', estado: false };
   correo = { correo: '', color: '', mensaje: '', estado: false };
   poder = { poder: '', estado: false };
   autorizacion = { estado: false };
+  registrado = false;
 
-  constructor(public Datos: DatosService) { }
+  constructor(public servicios: DatosService) { }
 
-  ngOnInit() { }
+  ngOnInit() { this.registrar() }
 
   valNombres() {
     if (this.nombres.nombres !== '') {
@@ -65,7 +65,28 @@ export class RegistroApoderadoComponent implements OnInit {
     } else { this.botonRegistrar.estado = false; }
   }
 
-  registrar() {
+  async registrar() {
+
+    await this.servicios.GetIP();
+
+
+    const usuario = {
+      tipId: this.documento.tipo,
+      numId: this.documento.numero,
+      numeroAccion: '',
+      nombresApellidos: this.nombres.nombres,
+      correo: this.correo.correo,
+      apoderado: false,
+      saldoTotal: '',
+      ipAcceso: '',
+      fechaUltimoAcceso: '',
+      fechaCreacion: '',
+      autoriza: true,
+      moderador: false,
+      attorneyXShareHolderId: null,
+      questionXActionList: [],
+    } as ReqUsuario;
+
     this.botonRegistrar.texto = 'Procesando...';
     this.registrado = true;
   }

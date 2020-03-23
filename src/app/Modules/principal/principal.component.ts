@@ -13,10 +13,20 @@ export class PrincipalComponent implements OnInit {
   constructor(public Datos: DatosService) { }
 
   ngOnInit() {
+    console.log(this.pantalla + ' yo');
 
-    setInterval(() => {
-      this.pantalla = localStorage.getItem('pantalla');
-    }, 1000);
+    // setInterval(() => {
+    //   this.pantalla = localStorage.getItem('pantalla');
+    // }, 1000);
 
+  }
+
+  async estadoPantalla() {
+    this.pantalla = localStorage.getItem('pantalla');
+    if (this.pantalla !== '') {
+      return true;
+    } else {
+      return false;
+    }
   }
 }
