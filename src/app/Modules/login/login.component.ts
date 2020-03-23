@@ -56,6 +56,7 @@ export class LoginComponent implements OnInit {
     try {
       respuesta = await this.Datos.GetLogueo(tip, num, accion).toPromise();
       this.respuestaLogueo = respuesta;
+      console.log(this.respuestaLogueo);
       if (this.respuestaLogueo.responseStatus.returnCode === '00') {
         this.mensaje = {
           estado: true,
@@ -63,6 +64,7 @@ export class LoginComponent implements OnInit {
           texto: 'Bienvenido ' + this.respuestaLogueo.shareHolder.nombresApellidos + ', lo estamos direccionando a la asamblea.',
         };
         localStorage.setItem('pantalla', 'asamblea');
+        localStorage.setItem('autoriza', this.respuestaLogueo.shareHolder.autoriza + '');
       } else {
         this.mensaje = {
           estado: true,

@@ -6,16 +6,12 @@
           <iframe class="rounded shadow-lg" width="560" height="315" src="https://www.youtube.com/embed/ZLWzGxwBAB0"
             frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen></iframe>
+            <div *ngIf="autoriza === 'true'">
+              <app-preguntas></app-preguntas>
+            </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-<ng-template #registroListo>
-  <div class="text-center mt-3">
-    <img src="../../../assets/images/check-icon.png" alt="Registrado">
-    <h5 class="text-success font-weight-bold">¡Muchas gracias!</h5>
-    <h5>El formulario y los datos se han enviado exitosamente.</h5>
-  </div>
-</ng-template>
 <div class="py-5"></div>

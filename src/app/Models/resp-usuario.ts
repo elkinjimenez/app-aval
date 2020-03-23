@@ -17,8 +17,7 @@ export interface Usuario {
   fechaCreacion: string;
   autoriza: boolean;
   moderador: boolean;
-  attorneyXShareHolderId: any;
-  questionXActionList: [];
+  preguntas: any;
 }
 
 export interface ResponseStatus {

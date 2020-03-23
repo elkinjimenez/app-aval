@@ -30,7 +30,7 @@ export class DatosService {
   GetTiposDocumento() {
     this.tiposDocumento = [
       { id: 'cc', nombre: 'Cédula de ciudadanía' },
-      { id: 'ce', nombre: 'Cédula de extrnajería' },
+      { id: 'ce', nombre: 'Cédula de extranjería' },
       { id: 'nit', nombre: 'NIT' },
       { id: 'ps', nombre: 'Pasaporte' },
     ];

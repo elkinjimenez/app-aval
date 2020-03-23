@@ -8,6 +8,7 @@ import { AppRoutingModule } from '../app-routing.module';
 import { RegistroApoderadoComponent } from './registro-apoderado/registro-apoderado.component';
 import { PrincipalComponent } from './principal/principal.component';
 import { AsambleaComponent } from './asamblea/asamblea.component';
+import { PreguntasComponent } from './preguntas/preguntas.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { AsambleaComponent } from './asamblea/asamblea.component';
     NavbarComponent,
     RegistroApoderadoComponent,
     PrincipalComponent,
-    AsambleaComponent
+    AsambleaComponent,
+    PreguntasComponent
   ],
   imports: [
     CommonModule,

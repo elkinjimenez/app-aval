@@ -10,6 +10,7 @@ import { RegistroApoderadoComponent } from './Modules/registro-apoderado/registr
 import { PrincipalComponent } from './Modules/principal/principal.component';
 import { AsambleaComponent } from './Modules/asamblea/asamblea.component';
 import { HttpClientModule } from '@angular/common/http';
+import { PreguntasComponent } from './Modules/preguntas/preguntas.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { HttpClientModule } from '@angular/common/http';
     NavbarComponent,
     RegistroApoderadoComponent,
     PrincipalComponent,
-    AsambleaComponent
+    AsambleaComponent,
+    PreguntasComponent
   ],
   imports: [
     BrowserModule,

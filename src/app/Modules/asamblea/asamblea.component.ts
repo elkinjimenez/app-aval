@@ -8,7 +8,7 @@ import { DatosService } from 'src/app/Services/datos.service';
 })
 export class AsambleaComponent implements OnInit {
 
-  item: string;
+  autoriza = localStorage.getItem('autoriza');
 
   constructor(public Datos: DatosService) { }
 
