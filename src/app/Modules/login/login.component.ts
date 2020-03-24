@@ -11,8 +11,8 @@ export class LoginComponent implements OnInit {
 
   // VARIABLES
   botonIngresar = { texto: 'Ingresar', estado: false };
-  documento = { numero: '1022332327', tipo: '', estado: true };
-  numAccionista = { numero: 'GAVAL63722', estado: true };
+  documento = { numero: '1234567890', tipo: '', estado: true };
+  numAccionista = { numero: 'GAVAL63711', estado: true };
   mensaje = { texto: '', color: '', estado: false };
 
   respuestaLogueo: RespUsuario;
@@ -65,6 +65,7 @@ export class LoginComponent implements OnInit {
         };
         localStorage.setItem('pantalla', 'asamblea');
         localStorage.setItem('autoriza', this.respuestaLogueo.shareHolder.autoriza + '');
+        localStorage.setItem('preguntas', this.respuestaLogueo.shareHolder.preguntas);
       } else {
         this.mensaje = {
           estado: true,
@@ -83,7 +84,7 @@ export class LoginComponent implements OnInit {
         estado: true,
         color: 'alert-danger',
         texto: 'El servicio presenta errores. Por favor intente de nuevo.',
-      }
+      };
       this.numAccionista = {
         numero: '',
         estado: false,

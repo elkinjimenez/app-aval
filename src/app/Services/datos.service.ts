@@ -19,13 +19,20 @@ export class DatosService {
     return this.http.get(URL);
   }
 
-  async GetIP() {
-    await this.http.get('https://api.ipify.org?format=json').subscribe(
+  GetQuestion() {
+    const URL = 'https://wsasableaaval.herokuapp.com/api/AssemblyQuestion';
+    return this.http.get(URL);
+  }
+
+  GetIP() {
+    this.http.get('https://api.ipify.org?format=json').subscribe(
       datos => {
         this.respuestaIP = JSON.parse(JSON.stringify(datos));
         console.log(this.respuestaIP.ip);
       });
   }
+
+
 
   GetTiposDocumento() {
     this.tiposDocumento = [

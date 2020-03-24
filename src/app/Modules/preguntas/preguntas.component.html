@@ -1,1 +1,54 @@
-<p>preguntas works!</p>
+<div class="my-5">
+  <div class="text-center" *ngIf="mensaje.estado">
+    <div class="alert {{mensaje.color}}" role="alert">
+      <h6>{{mensaje.mensaje}}</h6>
+    </div>
+  </div>
+  <div *ngIf="preguntas === 'null' || preguntas === '' || preguntas === '0'; else siPreguntas">
+
+  </div>
+</div>
+<ng-template #siPreguntas>
+  <div class="card">
+    <div class="card-body">
+      <h5 class="text-secondary">Formulario de preguntas.</h5>
+      <hr>
+      <div *ngIf="preguntaMostrar.num !== ''; else noPreguntas">
+        <h5 class="text-primary"><span>{{preguntaMostrar.num}}. </span>{{preguntaMostrar.descripcion}}</h5>
+        <div class="row">
+          <div class="col-6 text-left font-weight-bold"> Usuario </div>
+          <div class="col-1">Si</div>
+          <div class="col-2">No</div>
+          <div class="col-3">Me bastengo</div>
+        </div>
+        <div *ngFor="let u of usuarios" class="row">
+          <div class="col-6 text-left">
+            {{u}}
+          </div>
+          <div class="col-1">
+            <div class="custom-control custom-radio">
+              <input type="radio" value="aprovado" id="{{u}}si" name="{{u}}" class="custom-control-input">
+              <label class="custom-control-label" for="{{u}}si"></label>
+            </div>
+          </div>
+          <div class="col-2">
+            <div class="custom-control custom-radio">
+              <input type="radio" value="no aprovado" id="{{u}}no" name="{{u}}" class="custom-control-input">
+              <label class="custom-control-label" for="{{u}}no"></label>
+            </div>
+          </div>
+          <div class="col-3">
+            <div class="custom-control custom-radio">
+              <input type="radio" value="me abstengo" id="{{u}}x" name="{{u}}" class="custom-control-input">
+              <label class="custom-control-label" for="{{u}}x"></label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+<ng-template #noPreguntas>
+  <h5 class="text-primary">Aún no hay preguntas activas</h5>
+  <h6>Por favor espera hasta que el moderador las active.</h6>
+</ng-template>
