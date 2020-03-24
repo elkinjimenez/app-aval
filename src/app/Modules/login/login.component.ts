@@ -11,8 +11,8 @@ export class LoginComponent implements OnInit {
 
   // VARIABLES
   botonIngresar = { texto: 'Ingresar', estado: false };
-  documento = { numero: '1234567890', tipo: '', estado: true };
-  numAccionista = { numero: 'GAVAL63711', estado: true };
+  documento = { numero: '1022332327', tipo: '', estado: true };
+  numAccionista = { numero: 'GAVAL63722', estado: true };
   mensaje = { texto: '', color: '', estado: false };
 
   respuestaLogueo: RespUsuario;
