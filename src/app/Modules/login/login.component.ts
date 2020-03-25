@@ -66,6 +66,7 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('pantalla', 'asamblea');
         localStorage.setItem('autoriza', this.respuestaLogueo.shareHolder.autoriza + '');
         localStorage.setItem('preguntas', this.respuestaLogueo.shareHolder.preguntas);
+        localStorage.setItem('actionsAttorney', JSON.stringify(this.respuestaLogueo.actionsAttorney));
       } else {
         this.mensaje = {
           estado: true,

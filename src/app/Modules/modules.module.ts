@@ -9,6 +9,7 @@ import { RegistroApoderadoComponent } from './registro-apoderado/registro-apoder
 import { PrincipalComponent } from './principal/principal.component';
 import { AsambleaComponent } from './asamblea/asamblea.component';
 import { PreguntasComponent } from './preguntas/preguntas.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { PreguntasComponent } from './preguntas/preguntas.component';
   imports: [
     CommonModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule
   ]
 })
 export class ModulesModule { }

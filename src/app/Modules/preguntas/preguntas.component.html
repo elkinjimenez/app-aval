@@ -13,35 +13,75 @@
     <div class="card-body">
       <h5 class="text-secondary">Formulario de preguntas.</h5>
       <hr>
-      <div *ngIf="preguntaMostrar.num !== ''; else noPreguntas">
-        <h5 class="text-primary"><span>{{preguntaMostrar.num}}. </span>{{preguntaMostrar.descripcion}}</h5>
-        <div class="row">
-          <div class="col-6 text-left font-weight-bold"> Usuario </div>
-          <div class="col-1">Si</div>
-          <div class="col-2">No</div>
-          <div class="col-3">Me abstengo</div>
-        </div>
-        <div *ngFor="let u of usuarios" class="row">
-          <div class="col-6 text-left">
-            {{u}}
+      <div *ngIf="preguntaMostrar.num !== '' ; else noPreguntas">
+        <div *ngIf="preguntaResuelta !== preguntaMostrar.num; else noPreguntas">
+          <h5 class="text-primary"><span>Pregunta {{preguntaMostrar.num}}. </span>{{preguntaMostrar.descripcion}}</h5>
+          <div class="row">
+            <div class="col-6 text-left font-weight-bold">Código de accionista</div>
+            <div class="col-1">Si</div>
+            <div class="col-2">No</div>
+            <div class="col-3">Me abstengo</div>
           </div>
-          <div class="col-1">
-            <div class="custom-control custom-radio">
-              <input type="radio" value="aprovado" id="{{u}}si" name="{{u}}" class="custom-control-input">
-              <label class="custom-control-label" for="{{u}}si"></label>
+          <div class="row">
+            <div class="col-6 text-left">
+              <h6>Selección múltiple <span placement="top"
+                  ngbTooltip="Selecciona aquí para decidir por todos los accionistas una sola respuesta."><i
+                    class="far fa-question-circle fa-lg"></i></span></h6>
+            </div>
+            <div class="col-1">
+              <div class="custom-control custom-radio">
+                <input (change)="multipleSi()" type="radio" value="aprovado" id="si" name="multiple"
+                  class="custom-control-input">
+                <label class="custom-control-label" for="si"></label>
+              </div>
+            </div>
+            <div class="col-2">
+              <div class="custom-control custom-radio">
+                <input (change)="multipleNo()" type="radio" value="no aprovado" id="no" name="multiple"
+                  class="custom-control-input">
+                <label class="custom-control-label" for="no"></label>
+              </div>
+            </div>
+            <div class="col-3">
+              <div class="custom-control custom-radio">
+                <input (change)="multipleX()" type="radio" value="me abstengo" id="x" name="multiple"
+                  class="custom-control-input">
+                <label class="custom-control-label" for="x"></label>
+              </div>
             </div>
           </div>
-          <div class="col-2">
-            <div class="custom-control custom-radio">
-              <input type="radio" value="no aprovado" id="{{u}}no" name="{{u}}" class="custom-control-input">
-              <label class="custom-control-label" for="{{u}}no"></label>
+          <hr class="my-1">
+          <!-- FOR ----------------------------------------------------------------------------------------------- -->
+          <div *ngFor="let u of actionsAttorney; let in = index" class="row">
+            <div class="col-6 text-left">
+              {{u}}
+            </div>
+            <div class="col-1">
+              <div class="custom-control custom-radio">
+                <input [(ngModel)]="listaRespuestas[in]" type="radio" value="aprovado" id="{{u}}si" name="{{u}}"
+                  class="custom-control-input">
+                <label class="custom-control-label" for="{{u}}si"></label>
+              </div>
+            </div>
+            <div class="col-2">
+              <div class="custom-control custom-radio">
+                <input [(ngModel)]="listaRespuestas[in]" type="radio" value="no aprovado" id="{{u}}no" name="{{u}}"
+                  class="custom-control-input">
+                <label class="custom-control-label" for="{{u}}no"></label>
+              </div>
+            </div>
+            <div class="col-3">
+              <div class="custom-control custom-radio">
+                <input [(ngModel)]="listaRespuestas[in]" type="radio" value="me abstengo" id="{{u}}x" name="{{u}}"
+                  class="custom-control-input">
+                <label class="custom-control-label" for="{{u}}x"></label>
+              </div>
             </div>
           </div>
-          <div class="col-3">
-            <div class="custom-control custom-radio">
-              <input type="radio" value="me abstengo" id="{{u}}x" name="{{u}}" class="custom-control-input">
-              <label class="custom-control-label" for="{{u}}x"></label>
-            </div>
+          <div class="text-right mt-3">
+            <button (click)="enviarRespuestas()" [disabled]="!botonRespuestas.estado" class="btn btn-primary">
+              {{botonRespuestas.text}}
+            </button>
           </div>
         </div>
       </div>

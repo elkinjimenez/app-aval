@@ -11,6 +11,7 @@ import { PrincipalComponent } from './Modules/principal/principal.component';
 import { AsambleaComponent } from './Modules/asamblea/asamblea.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PreguntasComponent } from './Modules/preguntas/preguntas.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { PreguntasComponent } from './Modules/preguntas/preguntas.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
