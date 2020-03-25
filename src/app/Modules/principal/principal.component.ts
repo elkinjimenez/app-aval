@@ -12,14 +12,7 @@ export class PrincipalComponent implements OnInit {
 
   constructor(public Datos: DatosService) { }
 
-  ngOnInit() {
-    console.log(this.pantalla + ' yo');
-
-    // setInterval(() => {
-    //   this.pantalla = localStorage.getItem('pantalla');
-    // }, 1000);
-
-  }
+  ngOnInit() { }
 
   async estadoPantalla() {
     this.pantalla = localStorage.getItem('pantalla');

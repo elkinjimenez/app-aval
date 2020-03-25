@@ -32,6 +32,10 @@ export class PreguntasComponent implements OnInit {
 
   ngOnInit() {
     this.listaPreguntas();
+
+    setInterval(() => {
+      this.listaPreguntas();
+    }, 30000);
   }
 
   async listaPreguntas() {
@@ -61,10 +65,18 @@ export class PreguntasComponent implements OnInit {
     let pregunta = {} as RespPregunta;
     if (this.listadoPreguntas.length > 0) {
       pregunta = this.listadoPreguntas[this.listadoPreguntas.length - 1];
-      this.preguntaMostrar = {
-        num: pregunta.pregunta,
-        descripcion: pregunta.descPregunta,
-      };
+      if (this.preguntas.includes(',' + pregunta.pregunta + ',')) {
+        this.preguntaMostrar = {
+          num: pregunta.pregunta,
+          descripcion: pregunta.descPregunta,
+        };
+      } else {
+        this.preguntaMostrar = {
+          num: '',
+          descripcion: '',
+        };
+      }
+
     }
   }
 
@@ -93,6 +105,8 @@ export class PreguntasComponent implements OnInit {
     };
     if (this.listaRespuestas.length === this.actionsAttorney.length) {
       let IP: any;
+      const dateobj = new Date();
+      const B = dateobj.toISOString();
       try {
         IP = await this.Datos.GetIP().toPromise();
         this.respuestaIP = IP;
@@ -100,7 +114,7 @@ export class PreguntasComponent implements OnInit {
 
       for (let i = 0; i < this.listaRespuestas.length; i++) {
         const body = {
-          fecRespuesta: '2020-03-23T19:16:42.028Z',
+          fecRespuesta: B,
           id: 0,
           idPregunta: this.preguntaMostrar.num,
           ipRespuesta: this.respuestaIP.ip,
@@ -110,11 +124,11 @@ export class PreguntasComponent implements OnInit {
         } as ReqRespuesta;
         try {
           let respuesta: any;
-          respuesta = await this.Datos.PostRespuesta(body).toPromise();
-          if (respuesta !== undefined) {
-            this.preguntaResuelta = this.preguntaMostrar.num;
-            localStorage.setItem('preguntaResuelta', this.preguntaMostrar.num);
-          }
+          // respuesta = await this.Datos.PostRespuesta(body);
+          respuesta = this.Datos.PostRespuesta(body);
+          this.preguntaResuelta = this.preguntaMostrar.num;
+          localStorage.setItem('preguntaResuelta', this.preguntaMostrar.num);
+          console.log(respuesta);
         } catch (e) {
           this.mensaje = {
             mensaje: 'Las respuestas no pudieron ser enviadas correctamente. por favor consulte con el administrador.',
@@ -123,6 +137,14 @@ export class PreguntasComponent implements OnInit {
           };
         }
       }
+      this.mensaje = {
+        mensaje: 'Respuestas enviadas correctamente, pronto estará la nueva pregunta.',
+        color: 'alert-success',
+        estado: true,
+      };
+      setTimeout(() => {
+        this.mensaje.estado = false;
+      }, 8000);
     }
   }
 

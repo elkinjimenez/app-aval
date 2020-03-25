@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
+  usuario = localStorage.getItem('usuario');
+
   constructor() { }
 
   ngOnInit() {
@@ -18,6 +20,24 @@ export class NavbarComponent implements OnInit {
 
   inicio() {
     localStorage.setItem('pantalla', '');
+  }
+
+  cerrar() {
+    localStorage.setItem('preguntas', '');
+    localStorage.setItem('actionsAttorney', '');
+    localStorage.setItem('preguntaResuelta', '');
+    localStorage.setItem('autoriza', '');
+    localStorage.setItem('pantalla', '');
+    localStorage.setItem('usuario', '');
+  }
+
+  async estadoUsuario() {
+    this.usuario = localStorage.getItem('usuario');
+    if (this.usuario !== '') {
+      return true;
+    } else {
+      return false;
+    }
   }
 
 }

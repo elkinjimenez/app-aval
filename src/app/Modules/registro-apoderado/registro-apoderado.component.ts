@@ -67,9 +67,6 @@ export class RegistroApoderadoComponent implements OnInit {
 
   async registrar() {
 
-    await this.servicios.GetIP();
-
-
     const usuario = {
       tipId: this.documento.tipo,
       numId: this.documento.numero,

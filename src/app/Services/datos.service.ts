@@ -35,7 +35,7 @@ export class DatosService {
 
   PostRespuesta(body: ReqRespuesta) {
     const URL = 'https://wsasableaaval.herokuapp.com/api/QuestionXAction';
-    return this.http.post(URL, body, httpOptions);
+    return this.http.post(URL, body).subscribe(data => console.log(data), error => console.log(error));
   }
 
   GetIP() {
