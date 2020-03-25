@@ -1,7 +1,14 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { RespUsuario } from '../Models/resp-usuario';
 import { ReqRespuesta } from '../Models/req-respuesta';
+import { RespIp } from '../Models/resp-ip';
+
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type': 'application/json',
+  })
+};
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +18,7 @@ export class DatosService {
   private tiposDocumento: any;
 
   // RESPUESTAS
-  private respuestaIP: { ip: string };
+  private respuestaIP: RespIp;
   private requestRespuesta: ReqRespuesta;
 
   constructor(private http: HttpClient) { }
@@ -28,16 +35,9 @@ export class DatosService {
 
   PostRespuesta(body: ReqRespuesta) {
     const URL = 'https://wsasableaaval.herokuapp.com/api/QuestionXAction';
-    return this.http.post(URL, body);
+    return this.http.post(URL, body, httpOptions);
   }
 
-  GetIP() {
-    this.http.get('https://api.ipify.org?format=json').subscribe(
-      datos => {
-        this.respuestaIP = JSON.parse(JSON.stringify(datos));
-        console.log(this.respuestaIP.ip);
-      });
-  }
 
   GetTiposDocumento() {
     this.tiposDocumento = [

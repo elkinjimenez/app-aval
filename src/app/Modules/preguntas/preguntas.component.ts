@@ -90,6 +90,7 @@ export class PreguntasComponent implements OnInit {
       estado: false,
     };
     if (this.listaRespuestas.length === this.actionsAttorney.length) {
+      // const IP = this.Datos.GetIP();
       for (let i = 0; i < this.listaRespuestas.length; i++) {
         const body = {
           fecRespuesta: '2020-03-23T19:16:42.028Z',
