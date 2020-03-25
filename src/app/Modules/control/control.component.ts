@@ -59,7 +59,7 @@ export class ControlComponent implements OnInit {
       userMod: pregunta.userMod,
     } as ReqPregunta;
     try {
-      respuesta = await this.Datos.PostActualizarPre(body).toPromise();
+      respuesta = await this.Datos.PutActualizarPre(body).toPromise();
       this.respuestaActualizar = respuesta;
       this.listaPreguntas();
       console.log(this.respuestaActualizar);

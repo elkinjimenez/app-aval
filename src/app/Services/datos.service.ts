@@ -36,12 +36,12 @@ export class DatosService {
 
   PostRespuesta(body: ReqRespuesta) {
     const URL = 'https://wsasableaaval.herokuapp.com/api/QuestionXAction';
-    return this.http.post(URL, body).subscribe(data => console.log(data), error => console.log(error));
+    return this.http.post(URL, body).subscribe(data => data, error => console.log(error));
   }
 
-  PostActualizarPre(body: ReqPregunta) {
+  PutActualizarPre(body: ReqPregunta) {
     const URL = 'https://wsasableaaval.herokuapp.com/api/AssemblyQuestion/' + body.id;
-    return this.http.post(URL, body);
+    return this.http.put(URL, body);
   }
 
   PostCrearPregunta(body: ReqPregunta) {

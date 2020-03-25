@@ -128,7 +128,6 @@ export class PreguntasComponent implements OnInit {
           respuesta = this.Datos.PostRespuesta(body);
           this.preguntaResuelta = this.preguntaMostrar.num;
           localStorage.setItem('preguntaResuelta', this.preguntaMostrar.num);
-          console.log(respuesta);
         } catch (e) {
           this.mensaje = {
             mensaje: 'Las respuestas no pudieron ser enviadas correctamente. por favor consulte con el administrador.',
