@@ -63,7 +63,7 @@ export class LoginComponent implements OnInit {
           color: 'alert-success',
           texto: 'Bienvenido ' + this.respuestaLogueo.shareHolder.nombresApellidos + ', lo estamos direccionando a la asamblea.',
         };
-        if (!this.respuestaLogueo.shareHolder.moderador) {
+        if (this.respuestaLogueo.shareHolder.moderador) {
           localStorage.setItem('pantalla', 'control');
           localStorage.setItem('usuario', this.respuestaLogueo.shareHolder.nombresApellidos);
         } else {
