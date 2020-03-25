@@ -38,6 +38,9 @@ export class DatosService {
     return this.http.post(URL, body, httpOptions);
   }
 
+  GetIP() {
+    return this.http.get('https://api.ipify.org?format=json');
+  }
 
   GetTiposDocumento() {
     this.tiposDocumento = [

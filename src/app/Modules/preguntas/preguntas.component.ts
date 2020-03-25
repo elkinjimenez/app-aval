@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DatosService } from 'src/app/Services/datos.service';
 import { RespPregunta } from 'src/app/Models/resp-pregunta';
 import { ReqRespuesta } from 'src/app/Models/req-respuesta';
+import { RespIp } from 'src/app/Models/resp-ip';
 
 declare var jQuery: any;
 declare var $: any;
@@ -17,6 +18,7 @@ export class PreguntasComponent implements OnInit {
   autoriza = localStorage.getItem('autoriza');
   preguntaResuelta = localStorage.getItem('preguntaResuelta');
   actionsAttorney = JSON.parse(localStorage.getItem('actionsAttorney'));
+  listaRespuestas = JSON.parse(localStorage.getItem('actionsAttorney'));
 
   preguntaMostrar = { num: '', descripcion: '' };
   mensaje = { mensaje: '', color: '', estado: false };
@@ -24,7 +26,7 @@ export class PreguntasComponent implements OnInit {
 
   respuestaPreguntas = [] as RespPregunta[];
   listadoPreguntas = [] as RespPregunta[];
-  listaRespuestas = JSON.parse(localStorage.getItem('actionsAttorney'));
+  respuestaIP: RespIp;
 
   constructor(private Datos: DatosService) { }
 
@@ -90,13 +92,18 @@ export class PreguntasComponent implements OnInit {
       estado: false,
     };
     if (this.listaRespuestas.length === this.actionsAttorney.length) {
-      // const IP = this.Datos.GetIP();
+      let IP: any;
+      try {
+        IP = await this.Datos.GetIP().toPromise();
+        this.respuestaIP = IP;
+      } catch (e) { this.respuestaIP = { ip: '0.0.0.0' }; }
+
       for (let i = 0; i < this.listaRespuestas.length; i++) {
         const body = {
           fecRespuesta: '2020-03-23T19:16:42.028Z',
           id: 0,
           idPregunta: this.preguntaMostrar.num,
-          ipRespuesta: '192.168.0.1',
+          ipRespuesta: this.respuestaIP.ip,
           numeroAccion: this.actionsAttorney[i],
           observacion: 'na',
           respuesta: this.listaRespuestas[i],
