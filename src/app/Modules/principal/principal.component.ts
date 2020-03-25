@@ -18,8 +18,6 @@ export class PrincipalComponent implements OnInit {
     this.pantalla = localStorage.getItem('pantalla');
     if (this.pantalla !== '') {
       return true;
-    } else {
-      return false;
-    }
+    } else { return false; }
   }
 }

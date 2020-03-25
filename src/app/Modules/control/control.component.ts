@@ -13,6 +13,8 @@ declare var $: any;
 })
 export class ControlComponent implements OnInit {
 
+  numacccion = localStorage.getItem('numaccion');
+
   mensaje = { mensaje: '', color: '', estado: false };
   preguntaCrear = { pregunta: '', observaciones: '' };
   botonCrear = { texto: 'Crear pregunta', estado: true };
@@ -56,7 +58,7 @@ export class ControlComponent implements OnInit {
       fehCrea: pregunta.fehCrea,
       userCrea: pregunta.userCrea,
       fehModifica: B,
-      userMod: pregunta.userMod,
+      userMod: this.numacccion,
     } as ReqPregunta;
     try {
       respuesta = await this.Datos.PutActualizarPre(body).toPromise();
@@ -95,15 +97,15 @@ export class ControlComponent implements OnInit {
       id: null,
       observaciones: this.preguntaCrear.observaciones,
       pregunta: this.preguntaCrear.pregunta,
-      userCrea: 'omarmad',
-      userMod: 'omarmad',
+      userCrea: this.numacccion,
+      userMod: this.numacccion,
     } as ReqPregunta;
     try {
       respuesta = await this.Datos.PostCrearPregunta(body).toPromise();
       this.preguntaCrear = {
         observaciones: '',
         pregunta: '',
-      }
+      };
       this.listaPreguntas();
       this.mensaje = {
         mensaje: 'La pregunta fue creada correctamente.',
@@ -122,5 +124,4 @@ export class ControlComponent implements OnInit {
       this.mensaje.estado = false;
     }, 8000);
   }
-
 }

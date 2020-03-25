@@ -66,6 +66,7 @@ export class LoginComponent implements OnInit {
         if (this.respuestaLogueo.shareHolder.moderador) {
           localStorage.setItem('pantalla', 'control');
           localStorage.setItem('usuario', this.respuestaLogueo.shareHolder.nombresApellidos);
+          localStorage.setItem('numaccion', this.respuestaLogueo.shareHolder.numeroAccion);
         } else {
           localStorage.setItem('pantalla', 'asamblea');
           localStorage.setItem('autoriza', this.respuestaLogueo.shareHolder.autoriza + '');
