@@ -146,6 +146,9 @@ export class PreguntasComponent implements OnInit {
         this.mensaje.estado = false;
       }, 8000);
     }
+    this.botonRespuestas = {
+      text: 'Enviar respuestas',
+      estado: true,
+    };
   }
-
 }

@@ -63,11 +63,16 @@ export class LoginComponent implements OnInit {
           color: 'alert-success',
           texto: 'Bienvenido ' + this.respuestaLogueo.shareHolder.nombresApellidos + ', lo estamos direccionando a la asamblea.',
         };
-        localStorage.setItem('pantalla', 'asamblea');
-        localStorage.setItem('autoriza', this.respuestaLogueo.shareHolder.autoriza + '');
-        localStorage.setItem('preguntas', ',' + this.respuestaLogueo.shareHolder.preguntas + ',');
-        localStorage.setItem('actionsAttorney', JSON.stringify(this.respuestaLogueo.actionsAttorney));
-        localStorage.setItem('usuario', this.respuestaLogueo.shareHolder.nombresApellidos);
+        if (!this.respuestaLogueo.shareHolder.moderador) {
+          localStorage.setItem('pantalla', 'control');
+          localStorage.setItem('usuario', this.respuestaLogueo.shareHolder.nombresApellidos);
+        } else {
+          localStorage.setItem('pantalla', 'asamblea');
+          localStorage.setItem('autoriza', this.respuestaLogueo.shareHolder.autoriza + '');
+          localStorage.setItem('preguntas', ',' + this.respuestaLogueo.shareHolder.preguntas + ',');
+          localStorage.setItem('actionsAttorney', JSON.stringify(this.respuestaLogueo.actionsAttorney));
+          localStorage.setItem('usuario', this.respuestaLogueo.shareHolder.nombresApellidos);
+        }
       } else {
         this.mensaje = {
           estado: true,

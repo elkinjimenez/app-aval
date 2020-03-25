@@ -10,6 +10,7 @@ import { PrincipalComponent } from './principal/principal.component';
 import { AsambleaComponent } from './asamblea/asamblea.component';
 import { PreguntasComponent } from './preguntas/preguntas.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ControlComponent } from './control/control.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     RegistroApoderadoComponent,
     PrincipalComponent,
     AsambleaComponent,
-    PreguntasComponent
+    PreguntasComponent,
+    ControlComponent
   ],
   imports: [
     CommonModule,

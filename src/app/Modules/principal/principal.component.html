@@ -4,8 +4,14 @@
   <app-footer></app-footer>
 </div>
 <ng-template #asamblea>
-  <div *ngIf="pantalla === 'asamblea'; else login">
+  <div *ngIf="pantalla === 'asamblea'; else control">
     <app-asamblea></app-asamblea>
+    <app-footer></app-footer>
+  </div>
+</ng-template>
+<ng-template #control>
+  <div *ngIf="pantalla === 'control'; else login">
+    <app-control></app-control>
     <app-footer></app-footer>
   </div>
 </ng-template>

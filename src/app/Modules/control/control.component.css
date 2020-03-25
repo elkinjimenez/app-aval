@@ -1,0 +1,15 @@
+.imagen {
+  background-image: url(/assets/images/fondo-login.png);
+  background-repeat:no-repeat;
+  background-size: 90vw;
+}
+
+.espacio {
+  margin-top: 210px;
+}
+
+@media screen and (max-width: 700px){
+  .espacio {
+    margin-top: 100px;
+  }
+}

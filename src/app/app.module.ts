@@ -12,6 +12,7 @@ import { AsambleaComponent } from './Modules/asamblea/asamblea.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PreguntasComponent } from './Modules/preguntas/preguntas.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ControlComponent } from './Modules/control/control.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     RegistroApoderadoComponent,
     PrincipalComponent,
     AsambleaComponent,
-    PreguntasComponent
+    PreguntasComponent,
+    ControlComponent
   ],
   imports: [
     BrowserModule,

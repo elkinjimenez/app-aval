@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { RespUsuario } from '../Models/resp-usuario';
 import { ReqRespuesta } from '../Models/req-respuesta';
 import { RespIp } from '../Models/resp-ip';
+import { ReqPregunta } from '../Models/req-pregunta';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -36,6 +37,16 @@ export class DatosService {
   PostRespuesta(body: ReqRespuesta) {
     const URL = 'https://wsasableaaval.herokuapp.com/api/QuestionXAction';
     return this.http.post(URL, body).subscribe(data => console.log(data), error => console.log(error));
+  }
+
+  PostActualizarPre(body: ReqPregunta) {
+    const URL = 'https://wsasableaaval.herokuapp.com/api/AssemblyQuestion/' + body.id;
+    return this.http.post(URL, body);
+  }
+
+  PostCrearPregunta(body: ReqPregunta) {
+    const URL = 'https://wsasableaaval.herokuapp.com/api/AssemblyQuestion';
+    return this.http.post(URL, body);
   }
 
   GetIP() {

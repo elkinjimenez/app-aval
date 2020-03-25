@@ -1,0 +1,83 @@
+<div class="imagen">
+  <div class="container">
+    <div class="row d-flex justify-content-center">
+      <div class="col-xl-6 espacio">
+        <div class="text-center">
+          <div class="d-flex justify-content-center">
+            <div class="bg-primary pt-1 col-6"></div>
+          </div>
+          <h4 class="font-weight-bold my-0">CONTROL DE PREGRUNTAS</h4>
+          <h6>Administra el estado de los preguntas de la asamblea.</h6>
+          <div class="text-center" *ngIf="mensaje.estado">
+            <div class="alert {{mensaje.color}}" role="alert">
+              <h6>{{mensaje.mensaje}}</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-12">
+        <div class="mb-3 text-right">
+          <button [disabled]="!botonCrear.estado" data-toggle="modal" data-target=".modal-crear" class="btn btn-primary">{{botonCrear.texto}}</button>
+        </div>
+        <div class="table-responsive border border-primary rounded">
+          <table class="table table-striped table-bordered">
+            <thead>
+              <tr class="text-center">
+                <th scope="col">ID</th>
+                <th scope="col">Pregunta</th>
+                <th scope="col">Observaciones</th>
+                <th scope="col">Estado</th>
+                <th scope="col">Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let p of respuestaPreguntas" class="text-center">
+                <th scope="row">{{p.pregunta}}</th>
+                <td class="text-left">{{p.descPregunta}}</td>
+                <td>{{p.observaciones}}</td>
+                <td>
+                  <div *ngIf="p.estado === 'A'; else inactiva">
+                    <h6 class="text-success">Activa</h6>
+                  </div>
+                  <ng-template #inactiva>
+                    <h6 class="text-danger">Inactiva</h6>
+                  </ng-template>
+                </td>
+                <td><button [disabled]="!botonActivar.estado" (click)="activarPregunta(p)" *ngIf="p.estado === 'D'"
+                    class="btn btn-success">{{botonActivar.texto}}</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal modal-crear fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Crear pregunta.</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="m-4">
+          <div class="form-group">
+            <input [(ngModel)]="preguntaCrear.pregunta" type="text" class="form-control" id="preguntaQ"
+              placeholder="¿Cuál es la pregunta?">
+          </div>
+          <div class="form-group">
+            <textarea [(ngModel)]="preguntaCrear.observaciones" placeholder="Observaciones" class="form-control"
+              id="exampleFormControlTextarea1" rows="3"></textarea>
+          </div>
+          <div class="text-right">
+            <button (click)="crearPregunta()" type="button" class="btn btn-primary px-5">Crear</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="py-5"></div>
