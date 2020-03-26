@@ -25,27 +25,27 @@ export class DatosService {
   constructor(private http: HttpClient) { }
 
   GetLogueo(tip: string, num: string, accion: string) {
-    const URL = 'https://wsasableaaval.herokuapp.com/api/shareHolder/' + tip + '/' + num + '/' + accion;
+    const URL = 'http://181.51.21.177/WsAsambleaAval-Prod/api/shareHolder/' + tip + '/' + num + '/' + accion;
     return this.http.get(URL);
   }
 
   GetQuestion() {
-    const URL = 'https://wsasableaaval.herokuapp.com/api/AssemblyQuestion';
+    const URL = 'http://181.51.21.177/WsAsambleaAval-Prod/api/AssemblyQuestion';
     return this.http.get(URL);
   }
 
   PostRespuesta(body: ReqRespuesta) {
-    const URL = 'https://wsasableaaval.herokuapp.com/api/QuestionXAction';
+    const URL = 'http://181.51.21.177/WsAsambleaAval-Prod/api/QuestionXAction';
     return this.http.post(URL, body).subscribe(data => data, error => console.log(error));
   }
 
   PutActualizarPre(body: ReqPregunta) {
-    const URL = 'https://wsasableaaval.herokuapp.com/api/AssemblyQuestion/' + body.id;
+    const URL = 'http://181.51.21.177/WsAsambleaAval-Prod/api/AssemblyQuestion/' + body.id;
     return this.http.put(URL, body);
   }
 
   PostCrearPregunta(body: ReqPregunta) {
-    const URL = 'https://wsasableaaval.herokuapp.com/api/AssemblyQuestion';
+    const URL = 'http://181.51.21.177/WsAsambleaAval-Prod/api/AssemblyQuestion';
     return this.http.post(URL, body);
   }
 

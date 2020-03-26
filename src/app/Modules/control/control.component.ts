@@ -16,7 +16,7 @@ export class ControlComponent implements OnInit {
   numacccion = localStorage.getItem('numaccion');
 
   mensaje = { mensaje: '', color: '', estado: false };
-  preguntaCrear = { pregunta: '', observaciones: '' };
+  preguntaCrear = { pregunta: '', observaciones: '' , idpreg :''};
   botonCrear = { texto: 'Crear pregunta', estado: true };
   botonActivar = { texto: 'Activar', estado: true };
 
@@ -96,7 +96,7 @@ export class ControlComponent implements OnInit {
       fehModifica: B,
       id: null,
       observaciones: this.preguntaCrear.observaciones,
-      pregunta: this.preguntaCrear.pregunta,
+      pregunta: this.preguntaCrear.idpreg,
       userCrea: this.numacccion,
       userMod: this.numacccion,
     } as ReqPregunta;
@@ -105,6 +105,7 @@ export class ControlComponent implements OnInit {
       this.preguntaCrear = {
         observaciones: '',
         pregunta: '',
+        idpreg:''
       };
       this.listaPreguntas();
       this.mensaje = {
