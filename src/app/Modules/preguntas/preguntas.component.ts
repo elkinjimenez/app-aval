@@ -128,6 +128,11 @@ export class PreguntasComponent implements OnInit {
           respuesta = this.Datos.PostRespuesta(body);
           this.preguntaResuelta = this.preguntaMostrar.num;
           localStorage.setItem('preguntaResuelta', this.preguntaMostrar.num);
+          this.mensaje = {
+            mensaje: 'Respuestas enviadas correctamente, pronto estará la nueva pregunta.',
+            color: 'alert-success',
+            estado: true,
+          };
         } catch (e) {
           this.mensaje = {
             mensaje: 'Las respuestas no pudieron ser enviadas correctamente. por favor consulte con el administrador.',
@@ -136,11 +141,6 @@ export class PreguntasComponent implements OnInit {
           };
         }
       }
-      this.mensaje = {
-        mensaje: 'Respuestas enviadas correctamente, pronto estará la nueva pregunta.',
-        color: 'alert-success',
-        estado: true,
-      };
       setTimeout(() => {
         this.mensaje.estado = false;
       }, 8000);
