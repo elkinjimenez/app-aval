@@ -82,13 +82,13 @@ export class PreguntasComponent implements OnInit {
 
   multipleSi() {
     for (let i = 0; i < this.listaRespuestas.length; i++) {
-      this.listaRespuestas[i] = 'aprovado';
+      this.listaRespuestas[i] = 'aprobado';
     }
   }
 
   multipleNo() {
     for (let i = 0; i < this.listaRespuestas.length; i++) {
-      this.listaRespuestas[i] = 'no aprovado';
+      this.listaRespuestas[i] = 'no aprobado';
     }
   }
 

@@ -10,6 +10,7 @@ import { RespUsuario } from 'src/app/Models/resp-usuario';
 export class LoginComponent implements OnInit {
 
   // VARIABLES
+  botonInvitado = { texto: 'Invitado', estado: true };
   botonIngresar = { texto: 'Ingresar', estado: false };
   documento = { numero: '', tipo: '', estado: true };
   numAccionista = { numero: '', estado: true };
@@ -45,6 +46,15 @@ export class LoginComponent implements OnInit {
     } else {
       this.botonIngresar.estado = false;
     }
+  }
+
+async  valIninvitado() {
+      this.botonIngresar.estado = false;
+      localStorage.setItem('pantalla', 'asamblea');
+      localStorage.setItem('autoriza', false + '');
+      localStorage.setItem('preguntas', '');
+      localStorage.setItem('actionsAttorney', "[]");
+      localStorage.setItem('usuario', "Invitado");
   }
 
   async ingresar() {

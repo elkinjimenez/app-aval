@@ -13,7 +13,7 @@
         <li *ngIf="usuario !== ''" class="nav-item mx-2">
           <a (click)="asamblea()" class="nav-link text-white pointer">{{usuario}}</a>
         </li>
-        <li *ngIf="usuario !== ''" class="nav-item mx-2">
+        <li *ngIf="usuario !== '' && usuario !== 'invitado'" class="nav-item mx-2">
           <a (click)="cerrar()" class="nav-link text-white pointer">Cerrar sesión</a>
         </li>
       </ul>
@@ -21,6 +21,6 @@
   </div>
 </nav>
 <a routerLink="">
-  <img class="logo fixed-top" src="/app-aval/assets/images/logo.png" alt="Logo grupo Aval">
+  <img class="logo fixed-top" src="/app-aval/assets/images/logo3.png" alt="Logo grupo Aval">
 </a>
 <div *ngIf="estadoUsuario()"></div>

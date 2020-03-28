@@ -25,27 +25,27 @@ export class DatosService {
   constructor(private http: HttpClient) { }
 
   GetLogueo(tip: string, num: string, accion: string) {
-    const URL = 'http://181.51.21.177/WsAsambleaAval-Prod/api/shareHolder/' + tip + '/' + num + '/' + accion;
+    const URL = '/WsAsambleaAval-Prod/api/shareHolder/' + tip + '/' + num + '/' + accion;
     return this.http.get(URL);
   }
 
   GetQuestion() {
-    const URL = 'http://181.51.21.177/WsAsambleaAval-Prod/api/AssemblyQuestion';
+    const URL = '/WsAsambleaAval-Prod/api/AssemblyQuestion';
     return this.http.get(URL);
   }
 
   PostRespuesta(body: ReqRespuesta) {
-    const URL = 'http://181.51.21.177/WsAsambleaAval-Prod/api/QuestionXAction';
+    const URL = '/WsAsambleaAval-Prod/api/QuestionXAction';
     return this.http.post(URL, body).subscribe(data => data, error => console.log(error));
   }
 
   PutActualizarPre(body: ReqPregunta) {
-    const URL = 'http://181.51.21.177/WsAsambleaAval-Prod/api/AssemblyQuestion/' + body.id;
+    const URL = '/WsAsambleaAval-Prod/api/AssemblyQuestion/' + body.id;
     return this.http.put(URL, body);
   }
 
   PostCrearPregunta(body: ReqPregunta) {
-    const URL = 'http://181.51.21.177/WsAsambleaAval-Prod/api/AssemblyQuestion';
+    const URL = '/WsAsambleaAval-Prod/api/AssemblyQuestion';
     return this.http.post(URL, body);
   }
 
@@ -59,6 +59,8 @@ export class DatosService {
       { id: 'ce', nombre: 'Cédula de extranjería' },
       { id: 'nit', nombre: 'NIT' },
       { id: 'ps', nombre: 'Pasaporte' },
+      { id: 'ti', nombre: 'Tarjeta Identidad' },
+      { id: 'nip', nombre: 'Numero de Identificación Personal' },
     ];
     return this.tiposDocumento;
   }

@@ -20,6 +20,11 @@ export class NavbarComponent implements OnInit {
 
   inicio() {
     localStorage.setItem('pantalla', '');
+    localStorage.setItem('preguntas', '');
+    localStorage.setItem('actionsAttorney', '');
+    localStorage.setItem('preguntaResuelta', '');
+    localStorage.setItem('autoriza', '');
+    localStorage.setItem('usuario', '');
   }
 
   cerrar() {
