@@ -1,7 +1,8 @@
 .imagen {
-  background-image: url(/app-aval/assets/images/fondo-login.png);
+  background-image: url(/app-asamblea/assets/images/fondo-login02.png);
+/*  background-image: url(../../../assets/images/fondo-login02.png);*/
   background-repeat:no-repeat;
-  background-size: 90vw;
+  background-size: 70vw;
 }
 
 .espacio {

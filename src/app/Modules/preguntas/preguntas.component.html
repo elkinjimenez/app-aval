@@ -11,9 +11,9 @@
 <ng-template #siPreguntas>
   <div class="card">
     <div class="card-body">
-      <h5 class="text-secondary">Formulario de preguntas.</h5>
-      <hr>
       <div *ngIf="preguntaMostrar.num !== '' ; else noPreguntas">
+        <h5 class="text-secondary">Formulario de preguntas.</h5>
+        <hr>
         <div *ngIf="preguntaResuelta !== preguntaMostrar.num; else noPreguntas">
           <h5 class="text-primary"><span>Pregunta {{preguntaMostrar.num}}. </span>{{preguntaMostrar.descripcion}}</h5>
           <div class="row">
@@ -89,6 +89,6 @@
   </div>
 </ng-template>
 <ng-template #noPreguntas>
-  <h5 class="text-primary">Aún no hay preguntas activas</h5>
+  <!--h5 class="text-primary">Aún no hay preguntas activas</h5-->
   <h6>Por favor espera hasta que el moderador las active.</h6>
 </ng-template>

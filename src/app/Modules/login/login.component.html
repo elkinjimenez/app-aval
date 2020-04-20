@@ -1,13 +1,20 @@
 <div class="imagen">
+<div class="imagen2">
   <div class="container">
     <div class="d-flex justify-content-center">
       <div class="col-xl-6 espacio">
         <div class="text-center">
           <div class="d-flex justify-content-center">
-            <div class="bg-primary pt-1 col-6"></div>
+            <!--div class="bg-primary pt-1 col-6"></div-->
           </div>
-          <h4 class="font-weight-bold my-0">ASAMBLEA GRUPO AVAL</h4>
-          <h3>LA ASAMBLEHA HA FINALIZADO</h3>
+          <h2 class="font-weight-normal-bold my-0" 
+            style="color: #29384D;" >Asamblea de Accionistas</h2>
+          <h2 class="font-weight-normal-bold my-0" 
+            style="color: #29384D;"> América Móvil</h2>
+          <br>
+          <br>
+          <br>
+          <!--h3>LA ASAMBLEA HA FINALIZADO</h3-->
         </div>
         <div class="text-center" *ngIf="mensaje.estado">
           <div class="alert {{mensaje.color}}" role="alert">
@@ -15,7 +22,7 @@
           </div>
         </div>
         <div class="form-group row">
-          <label for="tipoDocumento" class="col-xl-5 col-form-label h6">Tipo de documento</label>
+          <label for="tipoDocumento" class="col-xl-5 col-form-label h6">Tipo de documento:</label>
           <div class="col-xl-7">
             <select (change)="valIngreso()" [(ngModel)]="documento.tipo" class="form-control" id="tipoDocumento">
               <option value="" disabled>Seleccione</option>
@@ -24,24 +31,24 @@
           </div>
         </div>
         <div class="form-group row">
-          <label for="documento" class="col-xl-5 col-form-label h6">Número de documento</label>
+          <label for="documento" class="col-xl-5 col-form-label h6">Número de documento:</label>
           <div class="col-xl-7">
-            <input (keyup)="valDocumento()" [(ngModel)]="documento.numero" type="text" class="form-control"
+            <input (keyup)="valDocumento()" (change)="valIngreso()" [(ngModel)]="documento.numero" type="text" class="form-control"
               id="documento">
           </div>
         </div>
         <div class="form-group row">
-          <label for="numAccionista" class="col-xl-5 col-form-label h6">Número de accionista</label>
+          <label for="numAccionista" class="col-xl-5 col-form-label h6">Número de pase:</label>
           <div class="col-xl-7">
-            <input (keyup)="valNumAccionista()" [(ngModel)]="numAccionista.numero" type="text" class="form-control"
+            <input (keyup)="valNumAccionista()" (change)="valIngreso()" [(ngModel)]="numAccionista.numero" type="text" class="form-control"
               id="numAccionista">
           </div>
         </div>
         <div class="row ">
-          <div class="col-xl-4">
+          <!--div class="col-xl-4">
             <button (click)="valIninvitado()" [disabled]="!botonInvitado.estado"
               class="btn btn-primary px-5">{{botonInvitado.texto}}</button>
-          </div>
+          </div-->
           <div class="col-xl-5"></div>
           <div class="col-xl-7">
             <button (click)="ingresar()" [disabled]="!botonIngresar.estado"
@@ -51,5 +58,6 @@
       </div>
     </div>
   </div>
+</div>
 </div>
 <div class="py-5"></div>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DatosService } from 'src/app/Services/datos.service';
 import { RespUsuario } from 'src/app/Models/resp-usuario';
+import { RespIp } from 'src/app/Models/resp-ip';
 
 @Component({
   selector: 'app-login',
@@ -12,11 +13,12 @@ export class LoginComponent implements OnInit {
   // VARIABLES
   botonInvitado = { texto: 'Invitado', estado: true };
   botonIngresar = { texto: 'Ingresar', estado: false };
-  documento = { numero: '', tipo: '', estado: true };
-  numAccionista = { numero: '', estado: true };
+  documento = { numero: '', tipo: '', estado: false };
+  numAccionista = { numero: '', estado: false };
   mensaje = { texto: '', color: '', estado: false };
 
   respuestaLogueo: RespUsuario;
+  respuestaIP: RespIp;
 
   constructor(public Datos: DatosService) { }
 
@@ -64,9 +66,15 @@ async  valIninvitado() {
     const accion = this.numAccionista.numero;
     let respuesta: any;
     try {
-      respuesta = await this.Datos.GetLogueo(tip, num, accion).toPromise();
+      let IP :any;  
+      try {
+        IP = await this.Datos.GetIP().toPromise();
+        this.respuestaIP = IP;
+      } catch (e) { this.respuestaIP = { ip: '0.0.0.0' }; }   
+      let ipSend = this.respuestaIP.ip + '%3Bact';
+      respuesta = await this.Datos.GetLogueo(tip, num, accion, ipSend).toPromise();
       this.respuestaLogueo = respuesta;
-      console.log(this.respuestaLogueo);
+      //console.log(this.respuestaLogueo);
       if (this.respuestaLogueo.responseStatus.returnCode === '00') {
         this.mensaje = {
           estado: true,
@@ -83,13 +91,27 @@ async  valIninvitado() {
           localStorage.setItem('preguntas', ',' + this.respuestaLogueo.shareHolder.preguntas + ',');
           localStorage.setItem('actionsAttorney', JSON.stringify(this.respuestaLogueo.actionsAttorney));
           localStorage.setItem('usuario', this.respuestaLogueo.shareHolder.nombresApellidos);
+          localStorage.setItem('tipDoc', tip);
+          localStorage.setItem('numDoc', num);
+          localStorage.setItem('accion', accion);
         }
       } else {
-        this.mensaje = {
-          estado: true,
-          color: 'alert-warning',
-          texto: this.respuestaLogueo.responseStatus.menssage,
-        };
+        //texto: this.respuestaLogueo.responseStatus.menssage
+        if(this.respuestaLogueo.responseStatus.returnCode === '98'){
+          this.mensaje = {
+            estado: true,
+            color: 'alert-warning',
+            texto: this.respuestaLogueo.responseStatus.menssage,
+          };
+  
+        }else{
+          this.mensaje = {
+            estado: true,
+            color: 'alert-warning',
+            texto: "Información o datos de Identificación incompletos",
+          };
+  
+        }
         this.numAccionista = {
           numero: '',
           estado: false,
@@ -101,7 +123,7 @@ async  valIninvitado() {
       this.mensaje = {
         estado: true,
         color: 'alert-danger',
-        texto: 'El servicio presenta errores. Por favor intente de nuevo.',
+        texto: 'El servicio presenta errores. Por favor intente más tarde.',
       };
       this.numAccionista = {
         numero: '',

@@ -1,11 +1,25 @@
 .logo {
-  max-width: 20vw;
-  left: 100px;
+  max-width: 17vw;
+  left: 85px;
+  margin-top: 330px;
 }
 
 @media screen and (max-width: 700px){
   .logo {
     max-width: 50vw;
+    left:15px;
+  }
+}
+
+.logo2 {
+  max-width: 13vw;
+  left: 55px;
+  margin-top: 210px;
+}
+
+@media screen and (max-width: 500px){
+  .logo2 {
+    max-width: 40vw;
     left:15px;
   }
 }

@@ -24,8 +24,8 @@ export class DatosService {
 
   constructor(private http: HttpClient) { }
 
-  GetLogueo(tip: string, num: string, accion: string) {
-    const URL = '/WsAsambleaAval-Prod/api/shareHolder/' + tip + '/' + num + '/' + accion;
+  GetLogueo(tip: string, num: string, accion: string, ipLog: String ) {
+    const URL = '/WsAsambleaAval-Prod/api/shareHolder/' + tip + '/' + num + '/' + accion + '/' + ipLog;
     return this.http.get(URL);
   }
 
@@ -54,13 +54,17 @@ export class DatosService {
   }
 
   GetTiposDocumento() {
-    this.tiposDocumento = [
+    /* this.tiposDocumento = [
       { id: 'cc', nombre: 'Cédula de ciudadanía' },
       { id: 'ce', nombre: 'Cédula de extranjería' },
       { id: 'nit', nombre: 'NIT' },
-      { id: 'ps', nombre: 'Pasaporte' },
+      { id: 'pas', nombre: 'Pasaporte' },
       { id: 'ti', nombre: 'Tarjeta Identidad' },
       { id: 'nip', nombre: 'Numero de Identificación Personal' },
+    ];*/
+    this.tiposDocumento = [
+      { id: 'ine', nombre: 'INE' },
+      { id: 'pas', nombre: 'Pasaporte' }
     ];
     return this.tiposDocumento;
   }
